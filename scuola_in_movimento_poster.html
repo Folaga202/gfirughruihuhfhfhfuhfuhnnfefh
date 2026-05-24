@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scuola in Movimento: Nutri il Tuo Futuro!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #e8e8e8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .poster {
+            width: 210mm;
+            height: 297mm;
+            background: #ffffff;
+            border-radius: 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #43A047 50%, #66BB6A 100%);
+            padding: 28px 40px 22px;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -18px;
+            left: 0;
+            width: 100%;
+            height: 36px;
+            background: #ffffff;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            color: #fff;
+			font-style: italic;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: 900;
+            color: #ffffff;
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            margin-bottom: 6px;
+        }
+
+        .header h1 span {
+            display: block;
+            font-size: 22px;
+            font-weight: 700;
+            opacity: 0.95;
+            margin-top: 6px;
+        }
+
+        /* ===== CONTENT ===== */
+        .content {
+            padding: 32px 40px 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            padding: 18px 22px;
+            border-radius: 14px;
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section:not(:last-child) {
+            margin-bottom: 16px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .section-number {
+            font-size: 10px;
+            font-weight: 700;
+            opacity: 0.7;
+            display: block;
+            margin-bottom: 2px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== ITEMS ===== */
+        .item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 10px;
+            border-left: 3px solid transparent;
+        }
+
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            margin-top: 5px;
+            flex-shrink: 0;
+        }
+
+        .item strong {
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .item p {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #444;
+            margin-top: 2px;
+        }
+
+        /* ===== SECTION 1 - GREEN ===== */
+        .section-green {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            border: 1px solid #A5D6A7;
+        }
+
+        .section-green .section-icon {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .section-green h2 {
+            color: #1B5E20;
+        }
+
+        .section-green .section-number {
+            color: #2E7D32;
+        }
+
+        .section-green .item {
+            border-left-color: #4CAF50;
+        }
+
+        .section-green .item-dot {
+            background: #4CAF50;
+        }
+
+        .section-green .item strong {
+            color: #1B5E20;
+        }
+
+        /* ===== SECTION 2 - BLUE ===== */
+        .section-blue {
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border: 1px solid #90CAF9;
+        }
+
+        .section-blue .section-icon {
+            background: #2196F3;
+            color: white;
+        }
+
+        .section-blue h2 {
+            color: #0D47A1;
+        }
+
+        .section-blue .section-number {
+            color: #1565C0;
+        }
+
+        .section-blue .item {
+            border-left-color: #2196F3;
+        }
+
+        .section-blue .item-dot {
+            background: #2196F3;
+        }
+
+        .section-blue .item strong {
+            color: #0D47A1;
+        }
+
+        /* ===== SECTION 3 - ORANGE ===== */
+        .section-orange {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border: 1px solid #FFCC80;
+        }
+
+        .section-orange .section-icon {
+            background: #FF9800;
+            color: white;
+        }
+
+        .section-orange h2 {
+            color: #E65100;
+        }
+
+        .section-orange .section-number {
+            color: #EF6C00;
+        }
+
+        .section-orange .item {
+            border-left-color: #FF9800;
+        }
+
+        .section-orange .item-dot {
+            background: #FF9800;
+        }
+
+        .section-orange .item strong {
+            color: #E65100;
+        }
+
+        /* ===== DECORATIVE ELEMENTS ===== */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.06;
+            pointer-events: none;
+        }
+
+        .deco-1 {
+            width: 140px;
+            height: 140px;
+            background: #4CAF50;
+            top: 200px;
+            right: -40px;
+        }
+
+        .deco-2 {
+            width: 90px;
+            height: 90px;
+            background: #2196F3;
+            top: 480px;
+            left: -25px;
+        }
+
+        .deco-3 {
+            width: 110px;
+            height: 110px;
+            background: #FF9800;
+            top: 780px;
+            right: -30px;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .poster {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: always;
+            }
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Decorative circles -->
+        <div class="deco-circle deco-1"></div>
+        <div class="deco-circle deco-2"></div>
+        <div class="deco-circle deco-3"></div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="header-badge">Campagna di Sensibilizzazione</div>
+            <h1>SCUOLA IN MOVIMENTO<span>NUTRI IL TUO FUTURO!</span></h1>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <!-- SECTION 1: MANGIA BENE -->
+            <div class="section section-green">
+                <div class="section-header">
+                    <div class="section-icon">🍎</div>
+                    <h2>
+                        <span class="section-number">01</span>
+                        Mangia Bene, Vivi Meglio
+                    </h2>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Esplora i sapori</strong>
+                        <p>Partecipa ai laboratori sensoriali per scoprire che frutta e verdura non fanno paura!</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Mense al Top</strong>
+                        <p>Scegliamo prodotti locali e di stagione, dicendo "no" ai cibi ultra-confezionati.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>No alle Bibite</strong>
+                        <p>Usa la tua borraccia! L'acqua del rubinetto è la scelta migliore per restare idratati senza zuccheri aggiunti.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: MUOVITI -->
+            <div class="section section-blue">
+                <div class="section-header">
+                    <div class="section-icon">👟</div>
+                    <h2>
+                        <span class="section-number">02</span>
+                        Muoviti! La Classe non è un Divano
+                    </h2>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Apprendimento Attivo</strong>
+                        <p>Chi ha detto che si impara solo stando seduti? Matematica e lingue sono più divertenti se studiate in movimento.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Spazio al Gioco</strong>
+                        <p>Trasformiamo i cortili in aree sicure e attrezzate per non fermarci mai, nemmeno nell'intervallo.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Protagonisti della Salute</strong>
+                        <p>Monitora i tuoi miglioramenti fisici per sentirti bene, non per competere.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: INSIEME -->
+            <div class="section section-orange">
+                <div class="section-header">
+                    <div class="section-icon">🤝</div>
+                    <h2>
+                        <span class="section-number">03</span>
+                        Insieme stiamo Bene
+                    </h2>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Stop allo Stigma</strong>
+                        <p>L'obesità non è una colpa. Combattiamo i pregiudizi per evitare isolamento e tristezza.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Il potere dei Pari</strong>
+                        <p>Noi ragazzi siamo i migliori promotori di salute: aiutiamoci a vicenda a scegliere stili di vita sani.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-dot"></div>
+                    <div>
+                        <strong>Premi Creativi</strong>
+                        <p>Festeggiamo i successi con attività sociali e creative, non con cibo spazzatura.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
